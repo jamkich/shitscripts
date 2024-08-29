@@ -18,10 +18,9 @@ async function unscrambler(words: string) {
   let ar: string[] = [];
 
   function permutation(word: string, step = 0): string {
-    let result;
     if (step === word.length) {
-      result = listArray.find((dictWord) => dictWord == word);
-      if (result !== undefined) return result;
+      const findings = listArray.find((dictWord) => dictWord == word);
+      if (findings !== undefined) return findings;
     }
     for (let j = step; j < word.length; j++) {
       let copy = [...word];
@@ -34,9 +33,8 @@ async function unscrambler(words: string) {
     }
     return "";
   }
-  let result;
   for (let i = 0; i < parsed.length; i++) {
-    result = permutation(parsed[i]);
+    const result = permutation(parsed[i]);
     ar.push(result);
   }
   return ar.join(",");
