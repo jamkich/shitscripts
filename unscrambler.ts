@@ -10,7 +10,7 @@ For each permutation:
 [x]  Print the solutions that were found.
 */
 
-async function unscrambler(words: string) {
+async function unscrambler(words: string): Promise<string> {
   // parse input
   const parsed = words.split(" ");
   const wordlist = await wl.text();
